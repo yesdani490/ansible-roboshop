@@ -14,12 +14,12 @@
        enabled: true
       
    -  name: remove html directory
-      ansible.builin.file:
+      ansible.builtin.file:
        path: /usr/share/nginx/html
        state: absent
 
    -  name: create html directory
-      ansible.builin.file:
+      ansible.builtin.file:
        path: /usr/share/nginx/html
        state: directory
 
