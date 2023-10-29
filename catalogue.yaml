@@ -31,8 +31,8 @@
        state: directory
 
    -  name: download catalogue artifact
-      ansible.builtin.uri: 
-        url: curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zip
+      ansible.builtin.get_url: 
+        url: https://roboshop-builds.s3.amazonaws.com/catalogue.zip
         dest: /tmp
 
    -  name: extract catalogue artifact
@@ -61,7 +61,7 @@
        state: installed
 
    -  name: install dependencies
-      ansible.builtin.command: mongo --host mongodb.joindevops.top </app/schema/catalogue.js
+      ansible.builtin.command: mongo --host mongodb.joindevops.top < /app/schema/catalogue.js
    -  name: restart catalogue
       ansible.builtin.service:
        name: catalogue
