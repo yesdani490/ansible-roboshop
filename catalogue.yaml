@@ -29,19 +29,23 @@
       ansible.builtin.file:
        path: /app
        state: directory
+
    -  name: download catalogue artifact
-      ansible.builtin.url: 
+      ansible.builtin.uri: 
         url: curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zip
         dest: /tmp
+
    -  name: extract catalogue artifact
       ansible.builtin.unarchive:
         src: /tmp/catalogue.zip
         dest: /app
         remote_src: yes
+
    -  name: install dependencies
       ansible.builtin.command: npm install
       args:
        chdir: /app
+
    -  name: copy catalogue service
       ansible.builtin.copy:
        src: catalogue.service
@@ -55,6 +59,7 @@
       ansible.builtin.yum:
        name: mongodb-org-shell
        state: installed
+
    -  name: install dependencies
       ansible.builtin.command: mongo --host mongodb.joindevops.top </app/schema/catalogue.js
    -  name: restart catalogue
