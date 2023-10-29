@@ -20,7 +20,7 @@
        name: roboshop
 
    -  name: check /app directory is present or not
-      ansible.builin.stat: 
+      ansible.builtin.stat: 
        path: /app
       register: output
       ignore_errors: true
@@ -41,4 +41,24 @@
    -  name: install dependencies
       ansible.builtin.command: npm install
       args:
-       chdir:/app
+       chdir: /app
+   -  name: copy catalogue service
+      ansible.builtin.copy:
+       src: catalogue.service
+       dest: /etc/systemd/system/catalogue.service
+
+   -  name: daemon reload
+      ansible.builtin.systemd:
+       daemon_reload: true
+
+   -  name: Install MongoDB
+      ansible.builtin.yum:
+       name: mongodb-org-shell
+       state: installed
+   -  name: install dependencies
+      ansible.builtin.command: mongo --host mongodb.joindevops.top </app/schema/catalogue.js
+   -  name: restart catalogue
+      ansible.builtin.service:
+       name: catalogue
+       state: restarted
+       enabled: true
