@@ -66,7 +66,7 @@
        state: installed
 
    -  name: load catalogue data
-      ansible.builtin.command: mongo --host mongodb.joindevops.top < /app/schema/catalogue.js
+      ansible.builtin.shell: mongo --host mongodb.joindevops.top < /app/schema/catalogue.js
 
    -  name: restart catalogue
       ansible.builtin.service:
