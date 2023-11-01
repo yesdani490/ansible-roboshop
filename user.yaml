@@ -53,7 +53,7 @@
        dest: /etc/systemd/system/user.service
 
    - name: Reload Daemon
-     ansible.builtin.system.d:
+     ansible.builtin.systemd:
        daemon_reload: true
   
    - name: copy mongo repo
