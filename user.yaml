@@ -70,7 +70,7 @@
        state: installed
 
    - name: load user date
-     ansible.builtin.command: mongo --host mongodb.joindevops.top </app/schema/user.js
+     ansible.builtin.shell: mongo --host mongodb.joindevops.top < /app/schema/user.js
 
    - name: start and enable user
      ansible.builtin.service:
