@@ -67,5 +67,5 @@
       state: installed
 
   -  name: load schema
-     ansible.builtin.command:
+     ansible.builtin.shell: mysql -h mysql.joindevops.top -uroot -pRoboShop@1 < /app/schema/shipping.sql 
 
