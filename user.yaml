@@ -64,5 +64,5 @@
        state: installed
 
    - name: load schema
-     ansible.builtin.command: mongo --host mongodb.joindevops.top </app/schema/user.js
+     ansible.builtin.command: mongo --host mongodb.joindevops.top < /app/schema/user.js
 
