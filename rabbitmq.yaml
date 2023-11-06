@@ -1,7 +1,7 @@
 -  name: Install rabbitmq
    hosts: rabbitmq
    become: yes
-   taskks:
+   tasks:
    - name: Configure rabbitmq yum repo
      ansible.builtin.shell: "{{item}}"
      loop: 
