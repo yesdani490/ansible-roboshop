@@ -72,7 +72,12 @@
       name: user
       state: restarted
       enabled: true
-       
+    
+   - name: restart service
+     ansible.builtin.service:
+      name: user
+      state: restarted
+      enabled: true
 
       
     
