@@ -22,8 +22,8 @@ cart.joindevops.top
  [mysql]
  mysql.joindevops.top
 
- [payments]
- payments.joindevops.top
+ [payment]
+ payment.joindevops.top
 
  [rabbitmq]
  rabbitmq.joindevops.top
