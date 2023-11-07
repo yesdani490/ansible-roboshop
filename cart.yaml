@@ -30,14 +30,14 @@
        path: /app
        state: directory
 
-   -  name: download cart artifact
-      ansible.builtin.get_url: 
-        url: https://roboshop-builds.s3.amazonaws.com/cart.zip
-        dest: /tmp
+   # -  name: download cart artifact
+   #    ansible.builtin.get_url: 
+   #      url: https://roboshop-builds.s3.amazonaws.com/cart.zip
+   #      dest: /tmp
 
    -  name: extract cart artifact
       ansible.builtin.unarchive:
-        src: /tmp/cart.zip
+        src: https://roboshop-builds.s3.amazonaws.com/cart.zip
         dest: /app
         remote_src: yes
 
